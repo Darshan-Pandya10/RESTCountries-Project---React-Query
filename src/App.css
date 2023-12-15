@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --view-height: 100vh;
+  --header-height: 6rem;
+  --footer-height: 6rem;
+  --primary-font: 'Nunito Sans', sans-serif;
+}
+
+/* theme */
+
+#light {
+  --primary-color: #232931;
+  --secondary-color: #eeeeee;
+  --hover-color: #4ecca3;
+}
+
+#dark {
+  --primary-color: #eeeeee;
+  --secondary-color: #120d1b;
+  --hover-color: #8973f9;
+}
+
+body{
+  font-family: var(--primary-font);
+  overflow-x: hidden;
+}
+
+/* Header */
+
+.header{
+  height: var(--header-height);
+}
+
+nav .active{
+  color: var(--hover-color);
+}
+
+.header button {
+  background-color: var(--hover-color);
+}
+
+
+/* Country Cards */
+
+.country-link span{
+  color: transparent;
+}
+
+.country-link :hover{
+  color: #4b5158;
+}
+
+.country-link :hover span {
+  color: var(--hover-color);
+}
+
+/* SingleCountry Card */
+
+.singleCountry .country-flag{
+  width: 25vw;
+  height: 20vw;
+}
+
+
+
+/* Footer */
+
+.footer {
+  height: var(--footer-height);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.footer p a{
+  color: var(--hover-color);
+}
+
+
+
+/* Home & About */
+
+.countries,
+.about,
+.singleCountry,
+.content {
+  min-height: calc(var(--view-height) - (var(--header-height) + var(--footer-height)));
+}
