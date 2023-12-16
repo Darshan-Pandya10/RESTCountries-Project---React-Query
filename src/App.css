@@ -77,6 +77,10 @@ nav .active{
   color: #4b5158;
 }
 
+#dark .country-link :hover {
+  color: #d0e2eb;
+}
+
 .country-link :hover span {
   color: var(--hover-color);
 }
