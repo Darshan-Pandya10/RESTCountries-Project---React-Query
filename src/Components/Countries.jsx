@@ -98,13 +98,13 @@ const getSearchedCountry = async () => {
 
   return (
     <main className='w-[90vw] m-auto'>   
-    <div className='inputs w-[90vw] overflow-x-hidden flex flex-col item-center justify-between lg:flex-row mx-auto m-4 p-2'>
-      <form className='w-fit mx-auto flex items-center border-2 border-solid border-black'  onSubmit={(e) => {
+    <div className='inputs w-[90vw] overflow-x-hidden flex flex-col item-center justify-between lg:flex-row mx-auto pt-8 p-2'>
+      <form className='w-fit mx-auto flex items-center border-2 border-solid  rounded-lg'  onSubmit={(e) => {
     e.preventDefault();
     singleCountryRefetch();
   }}>
     <input
-        className='w-[70vw] md:w-[20rem] p-2 outline-none'
+        className='w-[70vw] md:w-[20rem] m-2 p-2 outline-none'
         type="text"
         placeholder='Search By Country Name '
         name='searchQuery'
@@ -112,7 +112,7 @@ const getSearchedCountry = async () => {
           setSearchQuery(e.target.value)
         }, 1000)}
       />
-    <button className='border-l-2 border-solid border-black p-2'><BiSolidSearch size={26} /></button>
+    <button className='border-l-2 border-solid p-2'><BiSolidSearch size={26} /></button>
     </form>
      
      <Filter

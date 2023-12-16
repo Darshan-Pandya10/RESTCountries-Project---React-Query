@@ -16,7 +16,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{theme , toggleTheme}}>
-    <main id={theme}>
+    <main id={theme} className=''>
      <Header/>
      <div className='content'>
       <Outlet/>

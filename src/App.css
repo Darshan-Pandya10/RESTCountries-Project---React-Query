@@ -14,26 +14,34 @@
 /* theme */
 
 #light {
-  --primary-color: #232931;
-  --secondary-color: #eeeeee;
-  --hover-color: #4ecca3;
+  --primary-color: #F1F6F9;
+  --secondary-color: rgb(23, 25, 32);
+  --hover-color: #537FE7;
 }
 
 #dark {
-  --primary-color: #eeeeee;
-  --secondary-color: #120d1b;
-  --hover-color: #8973f9;
+  --primary-color: #16181b;
+  --secondary-color: #F5F5F5;
+  --hover-color: #665bcf;
 }
 
 body{
   font-family: var(--primary-font);
   overflow-x: hidden;
-}
+  }
 
 /* Header */
 
 .header{
   height: var(--header-height);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+#dark .header {
+  height: var(--header-height);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 nav .active{
@@ -42,6 +50,7 @@ nav .active{
 
 .header button {
   background-color: var(--hover-color);
+  color: white;
 }
 
 /* Filter */
@@ -79,9 +88,15 @@ nav .active{
 
 /* Footer */
 
-.footer {
+#light .footer {
   height: var(--footer-height);
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+#dark .footer {
+  height: var(--footer-height);
+  background-color: #161A30;
   color: var(--secondary-color);
 }
 
@@ -98,4 +113,20 @@ nav .active{
 .singleCountry,
 .content {
   min-height: calc(var(--view-height) - (var(--header-height) + var(--footer-height)));
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* form */
+
+form{
+  border-color: var(--secondary-color);
+}
+
+input{
+  background-color: transparent;
+}
+
+form button {
+  border-left-color: var(--secondary-color);
 }
