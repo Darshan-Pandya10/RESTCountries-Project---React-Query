@@ -81,6 +81,14 @@ nav .active{
   color: var(--hover-color);
 }
 
+#dark .Country-card{
+  background-color: #1f2225;
+}
+
+#light .Country-card{
+  background-color: whitesmoke;
+}
+
 /* SingleCountry Card */
 
 
