@@ -90,9 +90,9 @@ const getSearchedCountry = async () => {
       setFilterValue(filtervalue);
   }
 
-  console.log(filterValue)
+  // console.log(filterValue)
   const DisplayCountries = filterValue !== '' ? data.data.filter((country) => country.region === filterValue) : data.data;
-  console.log(DisplayCountries)   
+  // console.log(DisplayCountries)   
 
   // border-2 border-solid border-black
 
