@@ -97,7 +97,7 @@ const getSearchedCountry = async () => {
   // border-2 border-solid border-black
 
   return (
-    <>   
+    <main className='w-[90vw] m-auto'>   
     <div className='inputs w-[90vw] overflow-x-hidden flex flex-col item-center justify-between lg:flex-row mx-auto m-4 p-2'>
       <form className='w-fit mx-auto flex items-center border-2 border-solid border-black'  onSubmit={(e) => {
     e.preventDefault();
@@ -136,7 +136,7 @@ const getSearchedCountry = async () => {
         }
       </main>
       }
-    </>
+    </main>
   );
 }
 

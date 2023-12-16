@@ -17,14 +17,14 @@ const formattedPopulationCount = population?.toLocaleString("en-IN") || singleCo
         <img className='Country-flag rounded-t-md' src={flags?.svg || singleCountryData?.data[0]?.flags?.svg} alt={name?.common || singleCountryData?.data[0]?.name?.common}/>
         <div className="Country-details p-4">
           <NavLink to={name?.common || singleCountryData?.data[0]?.name?.common} className='country-link'>
-          <h2 className='text-base md:text-xl font-extrabold tracking-wider my-2 flex items-center'>
+          <h2 className='text-base sm:text-base md:text-xl  font-extrabold tracking-wider my-2 flex items-center'>
             <span className='pb-1'><FaHashtag size={16} /></span>
             {name?.common || singleCountryData?.data[0]?.name?.common}  
             </h2>
           </NavLink>
-          <p className='text-sm md:text-xl'><span className='font-semibold text-sm md:text-xl'>Population</span> : {formattedPopulationCount}</p>
-          <p className='text-sm md:text-xl'><span className='font-semibold text-sm md:text-xl'>Region</span> : {region || singleCountryData?.data[0]?.region}</p>
-          <p className='text-sm md:text-xl'><span className='font-semibold text-sm md:text-xl'>Capital</span> : {capital || singleCountryData?.data[0]?.capital}</p>
+          <p className='text-sm sm:text-base md:text-lg'><span className='font-semibold text-sm sm:text-base md:text-lg'>Population</span> : {formattedPopulationCount}</p>
+          <p className='text-sm sm:text-base md:text-lg'><span className='font-semibold text-sm sm:text-base md:text-lg'>Region</span> : {region || singleCountryData?.data[0]?.region}</p>
+          <p className='text-sm sm:text-base md:text-lg'><span className='font-semibold text-sm sm:text-base md:text-lg'>Capital</span> : {capital || singleCountryData?.data[0]?.capital}</p>
         </div>
     </div>
   )
