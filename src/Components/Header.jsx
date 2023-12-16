@@ -9,7 +9,7 @@ function Header() {
     const {theme , toggleTheme} = useContext(ThemeContext);
 
   return (
-    <div className='header flex items-center justify-between p-2 sm:p-4 w-screen shadow-lg'>
+    <div className='header flex items-center overflow-x-hidden justify-between p-2 sm:p-4 w-screen shadow-lg'>
         <NavLink to='/'>
             <h1 className='logo text-base sm:text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight'>
                 Where in the world?

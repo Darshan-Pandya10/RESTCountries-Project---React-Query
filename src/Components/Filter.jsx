@@ -23,7 +23,7 @@ const FilterMenu = ({handleFilter}) => {
 
   return (
     <>
-      <div className="filter-menu mx-auto my-2 lg:my-0 flex items-center justify-center w-fit flex-wrap">
+      <div className="filter-menu overflow-x-hidden mx-auto my-2 lg:my-0 flex items-center justify-center w-fit flex-wrap">
         {Regions.map((Region) => {
           const id = uuidv4();
           const {value , label} = Region

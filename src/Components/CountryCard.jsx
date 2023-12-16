@@ -13,7 +13,7 @@ const formattedPopulationCount = population?.toLocaleString("en-IN") || singleCo
 
 
   return (
-    <div className='Country-card m-7 w-[14rem] md:m-8 md:w-[18rem] h-auto shadow-lg rounded-md'>
+    <div className='Country-card overflow-x-hidden m-7 w-[14rem] md:m-8 md:w-[18rem] h-auto shadow-lg rounded-md'>
         <img className='Country-flag rounded-t-md' src={flags?.svg || singleCountryData?.data[0]?.flags?.svg} alt={name?.common || singleCountryData?.data[0]?.name?.common}/>
         <div className="Country-details p-4">
           <NavLink to={name?.common || singleCountryData?.data[0]?.name?.common} className='country-link'>

@@ -47,7 +47,7 @@ function SingleCountry() {
   const Languages = Object.entries(data?.data?.[0]?.languages);
 
   return (
-    <div className='singleCountry  relative w-[90vw] flex-col h-auto md:flex md:flex-row item-center justify-between my-8 mx-auto'>
+    <div className='singleCountry overflow-x-hidden relative w-[95vw] flex-col h-auto md:flex md:flex-row item-center justify-between my-8 mx-auto'>
       <img className=' country-flag w-[80%] h-[50%] sm:w-[50%] sm:h-[50%] md:w-[30%] md:h-[30%] m-auto' src={data?.data?.[0]?.flags?.png} alt={data?.data?.[0]?.flags?.alt} />
 
       <section className='w-auto p-4 mx-auto my-8 md:my-auto '>
@@ -75,14 +75,14 @@ function SingleCountry() {
         </section>
 
         {data?.data?.[0]?.borders && (
-          <p className='my-10 mx-2'>
+          <p className='w-fit my-10 mx-2 flex flex-wrap items-center p-2'>
             <span className='font-bold'>Border Countries:</span>
             {data.data[0].borders.map((border) => {
               const id = uuidv4();
               return (
                 <span
                   key={id}
-                  className='border-2 border-solid text-md border-slate-400 py-1 px-4 m-1 font-semibold'
+                  className='border-2 border-solid text-sm border-slate-400 py-1 px-4 m-2 font-semibold'
                 >
                   {border}
                 </span>
