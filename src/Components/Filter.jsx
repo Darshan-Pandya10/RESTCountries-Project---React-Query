@@ -14,7 +14,7 @@ const FilterMenu = ({handleFilter}) => {
   {value : 'europe' , label : 'Europe'},
   {value : 'ociania' , label : 'Ociania'}
 ]
-
+ 
   const handleDropdownChange = (event) => {
     handleFilter(event.target.value)
     setSelectedValue(event.target.value)
@@ -22,7 +22,7 @@ const FilterMenu = ({handleFilter}) => {
 
   return (
     <>
-      <div className="filter-menu flex items-center justify-center w-fit mx-auto flex-wrap">
+      <div className="filter-menu flex items-center justify-center w-fit flex-wrap">
         {Regions.map((Region) => {
           const id = uuidv4();
           const {value , label} = Region

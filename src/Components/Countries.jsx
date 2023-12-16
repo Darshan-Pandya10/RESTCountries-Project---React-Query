@@ -93,13 +93,13 @@ const getSearchedCountry = async () => {
 
   return (
     <>   
-    <div className='inputs flex item-center justify-between m-4 p-2'>
+    <div className='inputs w-[90vw] flex item-center justify-between mx-auto m-4 p-2'>
       <form className='w-fit flex items-center  border-2 border-solid border-black'  onSubmit={(e) => {
     e.preventDefault();
     refetch();
   }}>
     <input
-        className='w-[50vw] p-2 outline-none'
+        className='w-[20rem] p-2 outline-none'
         type="text"
         placeholder='Search By Country Name '
         name='searchQuery'
