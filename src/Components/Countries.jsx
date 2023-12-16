@@ -141,25 +141,3 @@ const getSearchedCountry = async () => {
 }
 
 export default Countries;
-
-
-
-
-
-
-
-
-
-
-
-
-//       q ? (
-//           // console.log(searchedCountryQuery.data)
-//           <SingleCountry searchedCountry={searchedCountryQuery.data} />
-//         ) : ( ) 
-
-//  <div className="filter-buttons flex items-center justify-center w-fit flex-wrap">
-//       <button className='filter-btn' onClick={(e) => 
-//       {e.preventDefault();
-//         refetch()}}> All </button>
-//               </div>

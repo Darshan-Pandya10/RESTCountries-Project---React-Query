@@ -3,7 +3,6 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import { Outlet } from 'react-router-dom'
 import { createContext, useState ,  } from 'react'
-import Countries from './Components/Countries'
 export const ThemeContext = createContext('null')
 
 function App() {
