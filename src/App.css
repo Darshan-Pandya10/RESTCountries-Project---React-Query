@@ -44,6 +44,19 @@ nav .active{
   background-color: var(--hover-color);
 }
 
+/* Filter */
+
+.filter-btn {
+  padding: 0.5rem 0.75rem;
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.05rem;
+  background-color: var(--hover-color);
+  color: var(--primary-color);
+  border-radius: 2rem;
+}
+
 
 /* Country Cards */
 

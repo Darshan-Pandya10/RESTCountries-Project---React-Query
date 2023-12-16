@@ -5,13 +5,15 @@ import { v4 as uuidv4 } from 'uuid';
 import SingleCountry from './CountryCard';
 import debounce from 'lodash.debounce';
 import { BiSolidSearch } from "react-icons/bi";
-import { useRef, useState } from 'react';
+import { useState } from 'react';
+import Filter from './Filter'
 
 
 
 function Countries() {
 
   const [searchQuery , setSearchQuery] = useState(false);
+  const [filterValue , setFilterValue] = useState('');
 
 
   const getCountries = async () => {
@@ -81,16 +83,23 @@ const getSearchedCountry = async () => {
     );
   }
 
+  // filter callback function 
+
+  const handleFilter = (filtervalue) => {
+      setFilterValue(filtervalue);
+  }
+
   // border-2 border-solid border-black
 
   return (
     <>   
-      <form className='w-[70vw] mt-10 mx-4 h-24 flex items-center justify-around '  onSubmit={(e) => {
+    <div className='inputs flex item-center justify-between m-4 p-2'>
+      <form className='w-fit flex items-center  border-2 border-solid border-black'  onSubmit={(e) => {
     e.preventDefault();
     refetch();
   }}>
     <input
-        className='w-[60vw] p-2 outline-none border-2 border-solid border-black'
+        className='w-[50vw] p-2 outline-none'
         type="text"
         placeholder='Search By Country Name '
         name='searchQuery'
@@ -98,8 +107,13 @@ const getSearchedCountry = async () => {
           setSearchQuery(e.target.value)
         }, 1000)}
       />
-    <button className='border-2 border-solid border-black p-2'><BiSolidSearch size={26} /></button>
+    <button className='border-l-2 border-solid border-black p-2'><BiSolidSearch size={26} /></button>
     </form>
+
+     <Filter
+      handleFilter={handleFilter} 
+      />
+     </div> 
 
       {singleCountryData ? 
       <main className='countries flex flex-wrap items-center justify-around mt-8'>
