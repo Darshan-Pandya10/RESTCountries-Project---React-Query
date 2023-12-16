@@ -21,7 +21,7 @@ function Countries() {
     return response;
   };
 
-  const { isLoading, isError, error, data } = useQuery({
+  const { isLoading, isError, error, data, refetch } = useQuery({
     queryKey: ['Countries'],
     queryFn: getCountries,
     staleTime: 10000,
@@ -37,7 +37,7 @@ const getSearchedCountry = async () => {
     return response;
   };
   
-  const {data: singleCountryData, isLoading : singleCountryIsLoading , isError : singleCountryIsError , error : singleCountryerror , refetch} = useQuery({
+  const {data: singleCountryData, isLoading : singleCountryIsLoading , isError : singleCountryIsError , error : singleCountryerror , refetch : singleCountryRefetch} = useQuery({
     queryKey: ['Countries', searchQuery],
     queryFn: getSearchedCountry,
     staleTime: 10000,
@@ -83,11 +83,16 @@ const getSearchedCountry = async () => {
     );
   }
 
+
   // filter callback function 
 
   const handleFilter = (filtervalue) => {
       setFilterValue(filtervalue);
   }
+
+  console.log(filterValue)
+  const DisplayCountries = filterValue !== '' ? data.data.filter((country) => country.region === filterValue) : data.data;
+  console.log(DisplayCountries)   
 
   // border-2 border-solid border-black
 
@@ -96,7 +101,7 @@ const getSearchedCountry = async () => {
     <div className='inputs w-[90vw] flex item-center justify-between mx-auto m-4 p-2'>
       <form className='w-fit flex items-center  border-2 border-solid border-black'  onSubmit={(e) => {
     e.preventDefault();
-    refetch();
+    singleCountryRefetch();
   }}>
     <input
         className='w-[20rem] p-2 outline-none'
@@ -109,10 +114,10 @@ const getSearchedCountry = async () => {
       />
     <button className='border-l-2 border-solid border-black p-2'><BiSolidSearch size={26} /></button>
     </form>
-
+     
      <Filter
       handleFilter={handleFilter} 
-      />
+      />      
      </div> 
 
       {singleCountryData ? 
@@ -124,7 +129,7 @@ const getSearchedCountry = async () => {
         :
       <main className='countries flex flex-wrap items-center justify-around mt-8'>
         {
-          data.data.map((country) => { 
+          DisplayCountries.map((country) => { 
             const id = uuidv4();
             return <SingleCountry country={country} key={id} />;
           })
@@ -152,3 +157,9 @@ export default Countries;
 //           // console.log(searchedCountryQuery.data)
 //           <SingleCountry searchedCountry={searchedCountryQuery.data} />
 //         ) : ( ) 
+
+//  <div className="filter-buttons flex items-center justify-center w-fit flex-wrap">
+//       <button className='filter-btn' onClick={(e) => 
+//       {e.preventDefault();
+//         refetch()}}> All </button>
+//               </div>

@@ -8,17 +8,18 @@ const FilterMenu = ({handleFilter}) => {
 
   const [selectedValue, setSelectedValue] = useState('');
   const Regions =  
-  [{value : 'africa' , label : 'Africa'},
-  {value : 'america' , label : 'America'},
-  {value : 'asia' , label : 'Asia'},
-  {value : 'europe' , label : 'Europe'},
-  {value : 'ociania' , label : 'Ociania'}
+  [{value : '' , label : 'All'},
+  {value : 'Africa' , label : 'Africa'},
+  {value : 'Americas' , label : 'America'},
+  {value : 'Asia' , label : 'Asia'},
+  {value : 'Europe' , label : 'Europe'},
+  {value : 'Oceania' , label : 'Oceania'}
 ]
  
   const handleDropdownChange = (event) => {
-    handleFilter(event.target.value)
-    setSelectedValue(event.target.value)
-  };
+  setSelectedValue(event.target.value);
+  handleFilter(event.target.value);
+};
 
   return (
     <>
