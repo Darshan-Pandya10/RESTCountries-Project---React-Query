@@ -13,18 +13,18 @@ const formattedPopulationCount = population?.toLocaleString("en-IN") || singleCo
 
 
   return (
-    <div className='Country-card m-8 w-[18rem] h-auto shadow-lg rounded-md'>
+    <div className='Country-card m-7 w-[14rem] md:m-8 md:w-[18rem] h-auto shadow-lg rounded-md'>
         <img className='Country-flag rounded-t-md' src={flags?.svg || singleCountryData?.data[0]?.flags?.svg} alt={name?.common || singleCountryData?.data[0]?.name?.common}/>
         <div className="Country-details p-4">
           <NavLink to={name?.common || singleCountryData?.data[0]?.name?.common} className='country-link'>
-          <h2 className='text-xl font-extrabold tracking-wider my-2 flex items-center'>
+          <h2 className='text-base md:text-xl font-extrabold tracking-wider my-2 flex items-center'>
             <span className='pb-1'><FaHashtag size={16} /></span>
-            {name?.common || singleCountryData?.data[0]?.name?.common}
+            {name?.common || singleCountryData?.data[0]?.name?.common}  
             </h2>
           </NavLink>
-          <p><span className='font-semibold'>Population</span> : {formattedPopulationCount}</p>
-          <p><span className='font-semibold'>Region</span> : {region || singleCountryData?.data[0]?.region}</p>
-          <p><span className='font-semibold'>Capital</span> : {capital || singleCountryData?.data[0]?.capital}</p>
+          <p className='text-sm md:text-xl'><span className='font-semibold text-sm md:text-xl'>Population</span> : {formattedPopulationCount}</p>
+          <p className='text-sm md:text-xl'><span className='font-semibold text-sm md:text-xl'>Region</span> : {region || singleCountryData?.data[0]?.region}</p>
+          <p className='text-sm md:text-xl'><span className='font-semibold text-sm md:text-xl'>Capital</span> : {capital || singleCountryData?.data[0]?.capital}</p>
         </div>
     </div>
   )

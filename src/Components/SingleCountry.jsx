@@ -47,13 +47,13 @@ function SingleCountry() {
   const Languages = Object.entries(data?.data?.[0]?.languages);
 
   return (
-    <div className='singleCountry relative w-[85vw] h-auto flex item-center justify-between my-8 mx-auto'>
-      <img className='country-flag m-auto' src={data?.data?.[0]?.flags?.png} alt={data?.data?.[0]?.flags?.alt} />
+    <div className='singleCountry  relative w-[90vw] flex-col h-auto md:flex md:flex-row item-center justify-between my-8 mx-auto'>
+      <img className=' country-flag w-[80%] h-[50%] sm:w-[50%] sm:h-[50%] md:w-[30%] md:h-[30%] m-auto' src={data?.data?.[0]?.flags?.png} alt={data?.data?.[0]?.flags?.alt} />
 
-      <section className='w-auto p-4 m-auto'>
+      <section className='w-auto p-4 mx-auto my-8 md:my-auto '>
         <h1 className='text-2xl font-extrabold tracking-wider mb-4 ml-2'>{data?.data?.[0]?.name?.common}</h1>
 
-        <section className='flex'>
+        <section className='flex-col md:flex md:flex-row'>
           <div className='mr-2'>
             <p className='m-2'><span className='font-bold'>Native Name</span> : {data?.data?.[0]?.name?.nativeName?.eng?.official}</p>
             <p className='m-2'><span className='font-bold'>Population</span> : {formattedPopulationCount}</p>
