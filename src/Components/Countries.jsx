@@ -43,8 +43,6 @@ const getSearchedCountry = async () => {
     placeholderData: keepPreviousData,
   });
 
-  console.log(singleCountryData)
-
 
   
   if (singleCountryIsLoading) {
@@ -64,9 +62,7 @@ const getSearchedCountry = async () => {
   }
 
 
-
-
-
+  // for countries
   
 
   if (isLoading) {
@@ -105,14 +101,16 @@ const getSearchedCountry = async () => {
     <button className='border-2 border-solid border-black p-2'><BiSolidSearch size={26} /></button>
     </form>
 
-      {singleCountryData ?  
+      {singleCountryData ? 
       <main className='countries flex flex-wrap items-center justify-around mt-8'>
-        <h1>{singleCountryData.data[0].name.common}</h1>
+        { 
+        singleCountryData && <SingleCountry singleCountryData = {singleCountryData} /> 
+        }
       </main> 
         :
       <main className='countries flex flex-wrap items-center justify-around mt-8'>
         {
-          data.data.map((country) => {
+          data.data.map((country) => { 
             const id = uuidv4();
             return <SingleCountry country={country} key={id} />;
           })
