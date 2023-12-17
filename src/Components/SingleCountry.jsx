@@ -47,7 +47,7 @@ function SingleCountry() {
   const Languages = Object.entries(data?.data?.[0]?.languages);
 
   return (
-    <div className='singleCountry overflow-x-hidden relative w-[95vw] flex-col h-auto md:flex md:flex-row item-center justify-between my-8 mx-auto'>
+    <div className='singleCountry overflow-x-hidden relative w-[95vw] flex-col h-auto md:flex md:flex-row item-center justify-between mx-auto'>
       <img className=' country-flag w-[80%] h-[50%] sm:w-[50%] sm:h-[50%] md:w-[30%] md:h-[30%] m-auto' src={data?.data?.[0]?.flags?.png} alt={data?.data?.[0]?.flags?.alt} />
 
       <section className='w-auto p-4 mx-auto my-8 md:my-auto '>
