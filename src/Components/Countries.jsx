@@ -50,7 +50,7 @@ const getSearchedCountry = async () => {
   if (singleCountryIsLoading) {
     return (
       <main className='countries loading'>
-        <h1 className='text-2xl text-center font-extrabold tracking-widest m-8'>Loading Searched Country ...</h1>
+        <h1 className='text-2xl text-center font-extrabold tracking-widest pt-8'>Loading Searched Country ...</h1>
       </main>
     );
   }
@@ -58,7 +58,7 @@ const getSearchedCountry = async () => {
   if (singleCountryIsError) {
     return (
       <main className='countries error'>
-        <h1 className='text-2xl text-center font-extrabold tracking-widest m-8'>Error: {singleCountryerror.message}</h1>
+        <h1 className='text-2xl text-center font-extrabold tracking-widest pt-8'>Error: {singleCountryerror.message}</h1>
       </main>
     );
   }
@@ -70,7 +70,7 @@ const getSearchedCountry = async () => {
   if (isLoading) {
     return (
       <main className='countries loading'>
-        <h1 className='text-2xl text-center font-extrabold tracking-widest m-8'>Loading ...</h1>
+        <h1 className='text-2xl text-center font-extrabold tracking-widest pt-8'>Loading ...</h1>
       </main>
     );
   }
@@ -78,7 +78,7 @@ const getSearchedCountry = async () => {
   if (isError) {
     return (
       <main className='countries error'>
-        <h1 className='text-2xl text-center font-extrabold tracking-widest m-8'>Error: {error.message}</h1>
+        <h1 className='text-2xl text-center font-extrabold tracking-widest pt-8'>Error: {error.message}</h1>
       </main>
     );
   }
@@ -121,13 +121,13 @@ const getSearchedCountry = async () => {
      </div> 
 
       {singleCountryData ? 
-      <main className='countries flex flex-wrap items-center justify-around mt-8'>
+      <main className='countries flex flex-wrap items-center justify-around pt-8'>
         { 
         singleCountryData && <SingleCountry singleCountryData = {singleCountryData} /> 
         }
       </main> 
         :
-      <main className='countries flex flex-wrap items-center justify-around mt-8'>
+      <main className='countries flex flex-wrap items-center justify-around pt-8'>
         {
           DisplayCountries.map((country) => { 
             const id = uuidv4();
