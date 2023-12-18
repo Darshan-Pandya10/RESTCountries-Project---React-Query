@@ -1,6 +1,6 @@
 import axios from 'axios'
 import '../App.css'
-import { keepPreviousData, useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useQuery} from '@tanstack/react-query';
 import { v4 as uuidv4 } from 'uuid';
 import SingleCountry from './CountryCard';
 import debounce from 'lodash.debounce';
@@ -8,11 +8,8 @@ import { BiSolidSearch } from "react-icons/bi";
 import { useState } from 'react';
 import Filter from './Filter'
 
-
-
 function Countries() {
-
-  const [searchQuery , setSearchQuery] = useState(false);
+  const [searchQuery , setSearchQuery] = useState('');
   const [filterValue , setFilterValue] = useState('');
 
 
@@ -21,17 +18,14 @@ function Countries() {
     return response;
   };
 
-  const { isLoading, isError, error, data, refetch } = useQuery({
+  const { isLoading, isError, error, data, refetch : allCountrieRefetch} = useQuery({
     queryKey: ['Countries'],
     queryFn: getCountries,
-    staleTime: 10000,
+    staleTime: 5000,
     placeholderData: keepPreviousData,
   });
 
-
   // Manual Searching 
-
-  
 const getSearchedCountry = async () => {
     const response = await axios.get(`https://restcountries.com/v3.1/name/${searchQuery}?fullText=true`);
     return response;
@@ -44,7 +38,6 @@ const getSearchedCountry = async () => {
     enabled: false,
     placeholderData: keepPreviousData,
   });
-
 
   
   if (singleCountryIsLoading) {
@@ -63,10 +56,8 @@ const getSearchedCountry = async () => {
     );
   }
 
-
   // for countries
   
-
   if (isLoading) {
     return (
       <main className='countries loading'>
@@ -83,18 +74,13 @@ const getSearchedCountry = async () => {
     );
   }
 
-
   // filter callback function 
 
   const handleFilter = (filtervalue) => {
       setFilterValue(filtervalue);
   }
 
-  // console.log(filterValue)
-  const DisplayCountries = filterValue !== '' ? data.data.filter((country) => country.region === filterValue) : data.data;
-  // console.log(DisplayCountries)   
-
-  // border-2 border-solid border-black
+  let DisplayCountries = filterValue !== '' ? data.data.filter((country) => country.region === filterValue) : data.data;
 
   return (
     <main className='w-[90vw] m-auto'>   
@@ -110,15 +96,22 @@ const getSearchedCountry = async () => {
         name='searchQuery'
         onChange={debounce((e) => {
           setSearchQuery(e.target.value)
-        }, 1000)}
+        }, 500)}
       />
     <button className='border-l-2 border-solid p-2'><BiSolidSearch size={26} /></button>
     </form>
-     
-     <Filter
-      handleFilter={handleFilter} 
-      />      
-     </div> 
+    <div className='filter-menu overflow-x-hidden mx-auto my-2 lg:my-0 flex items-center justify-center w-fit flex-wrap'> 
+      <button onClick={() => {
+        // allCountrieRefetch()
+        setFilterValue('')
+        // queryClient.invalidateQueries()
+      }}
+        className='filter-btn'>All</button>
+         <Filter
+        handleFilter={handleFilter} 
+        />
+    </div>
+    </div> 
 
       {singleCountryData ? 
       <main className='countries flex flex-wrap items-center justify-around pt-8'>
@@ -134,10 +127,10 @@ const getSearchedCountry = async () => {
             return <SingleCountry country={country} key={id} />;
           })
         }
-      </main>
-      }
+      </main>}
     </main>
   );
-}
+  }
+
 
 export default Countries;

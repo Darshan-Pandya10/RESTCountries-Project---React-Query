@@ -8,7 +8,7 @@ const FilterMenu = ({handleFilter}) => {
 
   const [selectedValue, setSelectedValue] = useState('');
   const Regions =  
-  [{value : '' , label : 'All'},
+  [
   {value : 'Africa' , label : 'Africa'},
   {value : 'Americas' , label : 'America'},
   {value : 'Asia' , label : 'Asia'},
@@ -23,7 +23,7 @@ const FilterMenu = ({handleFilter}) => {
 
   return (
     <>
-      <div className="filter-menu overflow-x-hidden mx-auto my-2 lg:my-0 flex items-center justify-center w-fit flex-wrap">
+      <div className="">
         {Regions.map((Region) => {
           const id = uuidv4();
           const {value , label} = Region

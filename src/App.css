@@ -66,6 +66,12 @@ nav .active{
   border-radius: 2rem;
 }
 
+/* back btn */
+
+.Back-btn{
+  background-color: var(--hover-color);
+  color: var(--primary-color);
+}
 
 /* Country Cards */
 
@@ -95,7 +101,10 @@ nav .active{
 
 /* SingleCountry Card */
 
-
+.singleCountry{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
 
 
 /* Footer */

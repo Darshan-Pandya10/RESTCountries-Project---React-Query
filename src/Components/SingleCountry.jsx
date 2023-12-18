@@ -1,9 +1,10 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import { v4 as uuidv4 } from 'uuid';
+import '../App.css'
 
 function SingleCountry() {
   const { countryname } = useParams();
@@ -33,6 +34,8 @@ function SingleCountry() {
     return (
       <main className='singleCountry error'>
         <h1 className='text-2xl text-center font-extrabold tracking-widest m-8'>Error while Loading : {error.message}</h1>
+        <p className='text-base font-semibold tracking-wider '>Go to the <Link to=''>Home Page</Link></p>
+
       </main>
     );
   }
@@ -45,9 +48,10 @@ function SingleCountry() {
 
   // Loop through languages.
   const Languages = Object.entries(data?.data?.[0]?.languages);
-
+// border-2 border-solid border-black
   return (
-    <div className='singleCountry overflow-x-hidden relative w-[95vw] flex-col h-auto md:flex md:flex-row item-center justify-between py-8 mx-auto'>
+    <div className='singleCountry overflow-x-hidden relative w-[95vw] flex-col h-auto py-16 md:flex md:flex-row item-center justify-between mx-auto'>
+      <Link className='Back-btn absolute top-4 left-4 py-1 px-8 rounded-md shadow-lg w-fit h-fit font-extrabold text-base' to='/Countries'>Back</Link>
       <img className=' country-flag w-[80%] h-[50%] sm:w-[50%] sm:h-[50%] md:w-[30%] md:h-[30%] m-auto' src={data?.data?.[0]?.flags?.png} alt={data?.data?.[0]?.flags?.alt} />
 
       <section className='w-auto p-4 mx-auto my-8 md:my-auto '>
