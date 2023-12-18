@@ -25,7 +25,7 @@ function SingleCountry() {
   if (isLoading) {
     return (
       <main className='singleCountry loading'>
-        <h1 className='text-2xl text-center font-extrabold tracking-widest m-8'>Loading Country Details...</h1>
+        <h1 className='text-2xl text-center font-extrabold tracking-widest pt-8'>Loading Country Details...</h1>
       </main>
     );
   }
@@ -33,7 +33,7 @@ function SingleCountry() {
   if (isError) {
     return (
       <main className='singleCountry error'>
-        <h1 className='text-2xl text-center font-extrabold tracking-widest m-8'>Error while Loading : {error.message}</h1>
+        <h1 className='text-2xl text-center font-extrabold tracking-widest pt-8'>Error while Loading : {error.message}</h1>
         <p className='text-base font-semibold tracking-wider '>Go to the <Link to=''>Home Page</Link></p>
 
       </main>
