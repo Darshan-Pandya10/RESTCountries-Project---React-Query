@@ -19,9 +19,6 @@ function Header() {
         <NavLink to='Countries' className='m-1 sm:m-2 font-semibold text-sm sm:text-base tracking-wider' >
             Countries
         </NavLink>
-        <NavLink to='About' className='m-1 sm:m-2 font-semibold text-sm sm:text-base tracking-wider' >
-            About
-        </NavLink>
         {theme === 'light' ? 
         <button className='m-2 font-semibold text-sm sm:text-base md:text-xl tracking-wider p-2 rounded-3xl'  onClick={toggleTheme}>
             <RiMoonClearFill />

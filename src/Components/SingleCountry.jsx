@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { MdArrowBackIosNew } from 'react-icons/md';
 import { v4 as uuidv4 } from 'uuid';
 import '../App.css'
 

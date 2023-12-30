@@ -21,7 +21,7 @@ function Countries() {
   const { isLoading, isError, error, data, refetch : allCountrieRefetch} = useQuery({
     queryKey: ['Countries'],
     queryFn: getCountries,
-    staleTime: 5000,
+    staleTime: 10000,
     placeholderData: keepPreviousData,
   });
 
@@ -80,7 +80,22 @@ const getSearchedCountry = async () => {
       setFilterValue(filtervalue);
   }
 
+  const getFilteredCountries = async () => {
+    const response = await axios.get(`https://restcountries.com/v3.1/name/${searchQuery}?fullText=true`);
+    return response;
+  };
+  
+  const {data: filteredCountries, isLoading : filteredCountriesIsLoading , isError : filteredCountriesIsError , error : filteredCountrieserror , refetch : filteredCountriesRefetch} = useQuery({
+    queryKey: ['Countries', filterValue],
+    queryFn: getFilteredCountries,
+    staleTime: 10000,
+    enabled: false,
+    placeholderData: keepPreviousData,
+  });
+
   let DisplayCountries = filterValue !== '' ? data.data.filter((country) => country.region === filterValue) : data.data;
+
+
 
   return (
     <main className='w-[90vw] m-auto'>   
@@ -92,7 +107,7 @@ const getSearchedCountry = async () => {
     <input
         className='w-[70vw] md:w-[20rem] m-2 p-2 outline-none'
         type="text"
-        placeholder='Search By Country Name '
+        placeholder='Search By Country Name'
         name='searchQuery'
         onChange={debounce((e) => {
           setSearchQuery(e.target.value)
