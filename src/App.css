@@ -53,6 +53,12 @@ nav .active{
   color: white;
 }
 
+/* landing  */
+
+.welcome-box{
+  border-color: var(--hover-color);
+}
+
 /* Filter */
 
 .filter-btn {
