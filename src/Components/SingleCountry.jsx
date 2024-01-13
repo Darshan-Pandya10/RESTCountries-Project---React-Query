@@ -69,9 +69,9 @@ function SingleCountry() {
             <p className='m-2'><span className='font-bold'>Top Level Domain</span> : {data?.data?.[0]?.tld}</p>
             <p className='m-2'><span className='font-bold'>Area</span> : {formattedArea} km²</p>
             {Languages ? (
-              <p className='m-2'><span className='font-bold'>Languages</span> : {Languages.map((language) => {
+              <p className='m-2'><span className='font-bold'>Languages</span> : {Languages.map((language , index) => {
                 const id = uuidv4();
-                return <span key={id}>{language[1]} </span>;
+                return <span key={id}>{language[1]}{index < Languages.length - 1 ? ',' : ''} </span>;
               })}</p>
             ) : null}
           </div>
