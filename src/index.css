@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+ .lifecycle-text{
+    @apply py-16 text-center text-2xl font-semibold tracking-wider;
+ }
+}
